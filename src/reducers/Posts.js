@@ -3,7 +3,7 @@
 const reducer = (Posts=[], action) => {
     switch(action.type) {
         case 'FETCH_ALL':
-            return Posts ;
+            return action.payload ;
         default:
             return Posts;
 
