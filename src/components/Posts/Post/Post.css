@@ -1,5 +1,10 @@
 .post {
-    margin: 0;
+    margin: 60px;
     padding: 20px;
-
+    background-color: white;
+    display:inline
+}
+.post__header__username {
+    display: inline;
+    float: left;
 }

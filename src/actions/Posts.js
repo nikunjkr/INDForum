@@ -4,17 +4,28 @@ import * as api from "../api/index.js";
 // default keyword showed error
 export const getPosts = () => async (dispatch) => {
     try {
-        // console.log("inactions");
         const {data} = await api.fetchPosts();
-        // const data = JSON.parse(data)
         console.log(data,"hi");
-        // console.log("inactions");
         dispatch({type:'FETCH_ALL' , payload: data});
     } catch (error) {
         console.log(error);
-        // console.log("inactions");
     }
-    
-    // return actions;
-    
+// return actions;
 }
+export const getPostComments = () => async (dispatch) => {
+    try{
+        const {data} =await api.getPostComments();
+        dispatch({type:'GET_POST_COMMENTS', payload: data});
+    } catch(error){
+        console.log(error);
+    }
+}
+export const createComment = (comment) => async (dispatch) => {
+  try {
+    const { data } = await api.createComment(comment);
+
+    dispatch({ type: 'CREATE_COMMENT', payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};

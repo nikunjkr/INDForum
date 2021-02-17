@@ -1,17 +1,20 @@
 import React, {useEffect} from "react";
 import './App.css';
 import Posts from './components/Posts/Posts'
+import PostDetails from './components/PostDetails/PostDetails'
+import CommentList from './components/CommentList/CommentList'
 // import {Container, AppBar, Typography} from "@material-ui/core"
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import {useDispatch} from "react-redux"
 import {getPosts} from './actions/Posts'
 const App = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    // forgot to call
-    dispatch(getPosts());
-    console.log("Dispatching");
-  }, [dispatch]);
+  // useEffect(() => {
+  //   // forgot to call
+  //   dispatch(getPosts());
+  //   console.log("Dispatching");
+  // }, [dispatch]);
 
   return (
     <div className="app">
@@ -19,10 +22,19 @@ const App = () => {
           <img className="app__headerImage" src="logo" alt="Logo"/>
 
       </div>
-
-      <h1> Hello we are making project injedia school</h1>
+      <Router>
+                {/* <Link to="/:postid/comments">Comments</Link> */}
+                <Switch>
+                    {/* <Route path="/a" components ={Posts} exact /> */}
+                     <Route path="/" exact >
+                       <Posts/>
+                     </Route>
+                    <Route path="/:postid/comments" component={CommentList} exact/>
+                   
+                 </Switch>
+       </Router>
       <div>
-      <Posts/>
+        {/* <Posts/> */}
       </div>
     </div>
   )
