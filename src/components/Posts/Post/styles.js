@@ -6,7 +6,7 @@ export default makeStyles({
     paddingTop: '56.25%',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     backgroundBlendMode: 'darken',
-    margin:"100px"
+    margin:"10px"
   },
   border: {
     border: 'solid',
@@ -21,7 +21,9 @@ export default makeStyles({
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
-    margin:"200px"
+    mx:"200px",
+    width:"75%",
+    padding:"5px"
   },
   overlay: {
     position: 'absolute',

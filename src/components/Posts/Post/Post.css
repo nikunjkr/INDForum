@@ -2,7 +2,8 @@
     margin: 60px;
     padding: 20px;
     background-color: white;
-    display:inline
+    display:inline,
+    
 }
 .post__header__username {
     display: inline;

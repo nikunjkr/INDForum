@@ -6,15 +6,16 @@ import CommentList from './components/CommentList/CommentList'
 // import {Container, AppBar, Typography} from "@material-ui/core"
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import {useDispatch} from "react-redux"
-import {getPosts} from './actions/Posts'
+import {getPosts} from './actions/Posts';
+import Routes from './Routes';
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   // forgot to call
-  //   dispatch(getPosts());
-  //   console.log("Dispatching");
-  // }, [dispatch]);
+  useEffect(() => {
+    // forgot to call
+    dispatch(getPosts());
+    console.log("Dispatching");
+  }, [dispatch]);
 
   return (
     <div className="app">
@@ -23,15 +24,8 @@ const App = () => {
 
       </div>
       <Router>
-                {/* <Link to="/:postid/comments">Comments</Link> */}
-                <Switch>
-                    {/* <Route path="/a" components ={Posts} exact /> */}
-                     <Route path="/" exact >
-                       <Posts/>
-                     </Route>
-                    <Route path="/:postid/comments" component={CommentList} exact/>
-                   
-                 </Switch>
+              <Routes />  
+          
        </Router>
       <div>
         {/* <Posts/> */}

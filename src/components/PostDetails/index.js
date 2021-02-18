@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 // import "./Posts.css"
 import Post from '../Posts/Posts' 
 
-const Posts = ({}) => {
+const Posts = () => {
     // Allows to extract data from the Redux store state, using a selector function.
     // useSelector() will also subscribe to the Redux store, and run  selector whenever an action is dispatched.
     const posts =useSelector( (state) =>state.Posts);

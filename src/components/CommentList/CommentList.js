@@ -1,78 +1,70 @@
 import React, { useEffect } from "react";
-import { Divider, Avatar, Grid, Paper, CircularProgress } from "@material-ui/core";
+import {
+  Divider,
+  Avatar,
+  Grid,
+  Paper,
+  CircularProgress,
+} from "@material-ui/core";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { getPostComments } from "../../actions/Posts";
 import { useDispatch, useSelector } from "react-redux";
 import Post from "../Posts/Post/Post";
 import Posts from "../Posts/Posts";
-import AddComment from '../AddComment/AddComment';
+import AddComment from "../AddComment/AddComment";
 import Comment from "../Comment/Comment";
 import { LocalFlorist } from "@material-ui/icons";
 
 const CommentList = ({ match }) => {
+  //   const posts = useSelector((state) => state.Posts);
 
-//   const posts = useSelector((state) => state.Posts);
-    
   const dispatch = useDispatch();
-  console.log(match.params.postid);
-  // const postid=match.params.postid;
-  // console.logd=match.params.postid;
-  // post fetch display
 
-  const postid=match.params.postid;
-
+  const id = match.params.postid;
+  var post = null;
+  var comment = [];
   useEffect(() => {
-    dispatch(getPostComments());
-    console.log("dispatching getPostComments")
-  }, [dispatch]);
+    dispatch(getPostComments(id));
+    console.log("dispatching getPostComments");
+  }, [dispatch, id]);
 
   const comments = useSelector((state) => state.Comments);
-  console.log(comments, "outside comments");
-  // console.log(comments, 'Heare are comments');
+  const posts = useSelector((state) => state.Posts);
 
-  
-
-  
+  console.log(comments, "Heare are comments");
+  // console.log(id);
+  // console.log(posts[7]?.post_id);
+  for (let i = 0; i < posts.length; i++) {
+    if (posts[i]?.post_id == id) {
+      post = posts[i];
+    }
+  }
+  for (let i = 0; i < comments.length; i++) {
+    if (comments[i]?.post_id == id) {
+      comment.push(comments[i]);
+    }
+  }
+  comment.sort((a, b) => (a?.timePosted > b?.timePosted ? -1 : 1));
+ 
+  console.log(post, "new post");
+  console.log(comments, "zero");
   return (
     <div style={{ padding: 14 }} className="App">
+      <div>
+        {/* !post ? <CircularProgress />:  */}
+        <Post post={post} />
+        <AddComment post ={post}/>
+      </div>
 
-   
+      {comment.map((comment, key) => (
+        <Grid key={key} item x3={12} sm={12}>
+          <Comment comment={comment} />
+        </Grid>
+      ))}
+
+
      
-        {/* <Link to="/:postid/comments">Comments</Link> */}
-
-        <Posts/>
-        
-     <AddComment/>
-
-
-      <h1>Comments</h1>
-      <Link to="/:postid/comments">Comments</Link>
-      <Comment comments={comments}/>
-      {/* <Comment/>
-      <Comment/> */}
-    
-
-
-
-
     </div>
-
-    // (
-    //     !comments.length ? <CircularProgress /> : (
-    //         <Grid className="post" container alignItems="stretch" spacing={3}>
-    //             {comments.map((comment, key) => (
-    //                 <Grid key={key} item x3={12} sm={12}>
-    //                     <Comment comment={comment} />
-    //                 </Grid>
-
-    //             ))}
-    //              {/* <Link to="/:postid/comments">Comments</Link> */}
-    //         </Grid>
-    //     )
-
-    // )
-
-
   );
 };
 export default CommentList;
