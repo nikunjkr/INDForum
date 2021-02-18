@@ -11,6 +11,7 @@ import {
   CardMedia,
   Typography,
 } from "@material-ui/core/";
+import CardHeader from '@material-ui/core/CardHeader';
 import history from '../../../history'
 
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
@@ -22,17 +23,23 @@ const Post = ({ post }) => {
   const classes = useStyles();
   const postid = post?.post_id;
 
-//   console.log(Post)
+  console.log(post)
 
   const imgLink =
     "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
 
   return (
-    <Card className={classes.card}>
-      
+    <Card className={classes}>
+        <CardHeader
+        avatar={
+          <Avatar aria-label="recipe" className={classes.avatar} src={post?.user_image}>
+          
+          </Avatar>
+        }></CardHeader>
         {/* {console.log(post?.Post_Id)} */}
         {/* {console.log(JSON.parse(post.Title))} */}
         <div className="post__header">
+          <h4 className="post__header__username">Posted by {post?.name}</h4>
           <IconButton className="post__header__upvote">
             <ThumbUpAltIcon />
           </IconButton>
@@ -40,7 +47,7 @@ const Post = ({ post }) => {
           <IconButton className="post__header__downvote">
             <ThumbDownAltIcon />
           </IconButton>
-          <h4 className="post__header__username">Posted by {post?.name}</h4>
+          
         </div>
         <Typography variant="h2" component="h2">
           {post?.title}

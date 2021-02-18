@@ -7,7 +7,8 @@ import Post from "../Posts/Post/Post";
 import Posts from "../Posts/Posts";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
-import moment from 'moment'
+import moment from 'moment';
+import Button from "@material-ui/core/Button";
 
 import {upvoteComment} from '../../actions/Posts'
 
@@ -42,8 +43,12 @@ const Comment = (props) => {
             <ThumbDownAltIcon />
           </IconButton>
         </Grid>
-
+      
     </Grid>
+    {/* <h3>Thread</h3> */}
+      <Button size="small" color="black" onClick={function newDoc() {
+  window.location.assign(`/comments/${props.comment?.comment_id}/thread`)
+}} >Open Thread</Button>
 </Paper>)
 }
 

@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { HouseRounded } from "@material-ui/icons";
 import { useState } from "react";
+import {createComment} from '../../actions/Posts'
+import { useDispatch, useSelector } from 'react-redux';
 
-const AddComment = () => {
 
-  const [comment, setComment] =useState({comment : '',comment_id:'', })
-  const addComment = 1
+const AddComment = (props) => {
+  // console.log(props.post?.post_id,"adding comments")
+  const postid=props.post?.post_id;
+  const dispatch = useDispatch();
+  const [comment, setComment] =useState('');
+
+  const clear = () => {
+    setComment('');
+    
+  };
+  const handleAddComment = async(e) => {
+    e.preventDefault();
+    dispatch(createComment( postid, comment));
+    clear();
+  }
+
+  // useEffect(()=>{
+  
+  // })
   return (
     <>
       <TextField
@@ -20,9 +38,10 @@ const AddComment = () => {
         variant="outlined"
         size="medium"
         fullWidth
-
+        onChange={(event) => setComment(event.target.value)}
+        value={comment}
       />
-      <Button variant="contained" color="primary" onClick={addComment}>
+      <Button variant="contained" color="primary" onClick={handleAddComment}>
         Comment
       </Button>
     </>

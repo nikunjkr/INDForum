@@ -50,14 +50,17 @@ const CommentList = ({ match }) => {
   console.log(comments, "zero");
   return (
     <div style={{ padding: 14 }} className="App">
-      <div>
+      <Grid container spacing={3}>
+         <Grid item xs={6}>
         {/* !post ? <CircularProgress />:  */}
         <Post post={post} />
         <AddComment post ={post}/>
-      </div>
+      </Grid>
+      </Grid>
+     
 
       {comment.map((comment, key) => (
-        <Grid key={key} item x3={12} sm={12}>
+        <Grid key={key} item xs={9} sm={6}>
           <Comment comment={comment} />
         </Grid>
       ))}
