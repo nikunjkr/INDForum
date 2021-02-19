@@ -20,11 +20,13 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div className="app">
-      <div className="app__header">
+    <>
+    <div className="app__header">
           <img className="app__headerImage" src={logo} alt="Logo"/>
 
       </div>
+    <div className="app">
+      
       <Router>
               <Routes />  
           
@@ -33,6 +35,7 @@ const App = () => {
         {/* <Posts/> */}
       </div>
     </div>
+    </>
   )
     
     

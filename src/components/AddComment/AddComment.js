@@ -8,18 +8,18 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 const AddComment = (props) => {
-  // console.log(props.post?.post_id,"adding comments")
+  console.log(props.post?.post_id,"adding comments")
   const postid=props.post?.post_id;
   const dispatch = useDispatch();
-  const [comment, setComment] =useState('');
+  const [comment, setComment] = useState('');
 
   const clear = () => {
     setComment('');
-    
   };
+
   const handleAddComment = async(e) => {
     e.preventDefault();
-    dispatch(createComment( postid, comment));
+    await dispatch(createComment( postid, comment));
     clear();
   }
 

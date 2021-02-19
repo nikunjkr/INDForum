@@ -35,11 +35,13 @@ const Post = ({ post }) => {
           <Avatar aria-label="recipe" className={classes.avatar} src={post?.user_image}>
           
           </Avatar>
-        }></CardHeader>
+        }
+                title= {post?.name}
+></CardHeader>
         {/* {console.log(post?.Post_Id)} */}
         {/* {console.log(JSON.parse(post.Title))} */}
         <div className="post__header">
-          <h4 className="post__header__username">Posted by {post?.name}</h4>
+          {/* <h4 className="post__header__username">Posted by {post?.name}</h4> */}
           <IconButton className="post__header__upvote">
             <ThumbUpAltIcon />
           </IconButton>
@@ -49,7 +51,7 @@ const Post = ({ post }) => {
           </IconButton>
           
         </div>
-        <Typography variant="h2" component="h2">
+        <Typography variant="h3" component="h3">
           {post?.title}
         </Typography>
        
@@ -63,7 +65,7 @@ const Post = ({ post }) => {
         {/* <h3>{post.name}</h3> */}
         {/* <img src={post.user_image} alt="Loading"></img> */}
 
-        <h3>{post?.caption}</h3>
+        <h4>{post?.caption}</h4>
         <h3>{post?.image_Link}</h3>
 
         <h3>{post?.timePosted}</h3>

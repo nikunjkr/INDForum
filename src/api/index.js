@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://ec2-52-206-109-241.compute-1.amazonaws.com:3000/team2practo/' });
+const API = axios.create({ baseURL: 'http://ec2-52-206-109-241.compute-1.amazonaws.com/team2practo' });
 
 API.interceptors.request.use((req) => {
 //   if (localStorage.getItem('profile')) {
     // req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
-    req.headers.Authorization = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMDkxNjU4ODUwMDYxNTQxMTU0MDAiLCJlbWFpbCI6InJhamlzYW52NzdAZ21haWwuY29tIiwiaWF0IjoxNjEzNjM4NjA5LCJleHAiOjE2MTM2NDIyMDl9.-yaPGSH5xJH4B8QKKFyQuA83A5X1Hk7ecV8gyQN0Jf8";
+    req.headers.Authorization = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMTYxMTc2NTcyNDE2MzgzNjM2NDkiLCJlbWFpbCI6Im5pa3VuamtyMDc4QGdtYWlsLmNvbSIsImlhdCI6MTYxMzc1NzAxMiwiZXhwIjoxNjEzNzYwNjEyfQ.iD-eBiSY8KQ4HXYEENJwwgxUzzYSXr9w-NOTiOq_vDs";
 //   }
 
   return req;
@@ -24,5 +24,5 @@ export const getPostComments= (postid) => API.get(`/${postid}/comments`);
 export const downvoteComment = (comment_id) => API.put('/comments/uord', {'comment_id':comment_id,
     'upordown':'d'});
 
-export const createComment =({post_id,newComment}) => API.post('/comments', {post_id: post_id, comment : newComment});
+export const createComment =(postid,Comment) => API.post('/comments', {'post_id': postid, 'comment' : Comment});
 

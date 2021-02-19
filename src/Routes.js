@@ -9,6 +9,7 @@ import CommentList from "./components/CommentList/CommentList";
 const Routes = () => (
   <Router history={history}>
     <Switch>
+     
       <Route path="/" exact>
         <Posts />
       </Route>

@@ -23,7 +23,7 @@ export default makeStyles({
     position: 'relative',
     mx:"200px",
     width:"75%",
-    padding:"5px"
+    padding:"20px"
   },
   overlay: {
     position: 'absolute',

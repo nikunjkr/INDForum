@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState} from "react";
 import { Divider, Avatar, Grid, Paper, CircularProgress,IconButton } from "@material-ui/core";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { getPostComments } from "../../actions/Posts";
@@ -9,22 +9,44 @@ import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
 import moment from 'moment';
 import Button from "@material-ui/core/Button";
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+
+
 
 import {upvoteComment} from '../../actions/Posts'
 
+import AddComment from '../AddComment/AddComment'
+
 const Comment = (props) => {
+
+
+
+  const [color, setColor] = useState('action')
+  
+  console.log("Seeing the comments of a post",props);
+
+  const handleReply  = () =>{
+    document.getElementById("comment-grid").append(
+      <AddComment/>
+    )
+  }
   
   const dispatch = useDispatch();
+  // useEffect(()=>{
+  //   dispatch(upvoteComment(props.comment?.comment_id, "u"))
+  //   console.log("useEffect in comments")
+  // },[dispatch,props.comment?.comment_id]);
+
   console.log(props, "inside comments");
-    // const imgLink =
-    // "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
+    
 
     return (
     <Paper style={{ padding: "40px 20px", marginTop: 10 }}>
-    <Grid container wrap="nowrap" spacing={2}>
+    <Grid  id="comment-grid" container wrap="nowrap" spacing={2}>
         <Grid item>
             <Avatar alt="Remy Sharp" src={props?.comment?.user_image} />
         </Grid>
+
         <Grid justifyContent="left" item xs zeroMinWidth>
             <h4 style={{ margin: 0, textAlign: "left" }}>{props.comment?.name}</h4>
             <p style={{ textAlign: "left", color: "gray" }}>
@@ -36,19 +58,18 @@ const Comment = (props) => {
             </p>
             
             <IconButton className="post__header__upvote" onClick={()=>dispatch(upvoteComment(props.comment?.comment_id, "u"))}>
-            <ThumbUpAltIcon />
-          </IconButton>
+            <ThumbUpAltIcon color="primary"/>
+          </IconButton >
           {props.comment?.upVotes-props.comment?.downVotes}
           <IconButton className="post__header__downvote">
             <ThumbDownAltIcon />
           </IconButton>
         </Grid>
+
       
     </Grid>
     {/* <h3>Thread</h3> */}
-      <Button size="small" color="black" onClick={function newDoc() {
-  window.location.assign(`/comments/${props.comment?.comment_id}/thread`)
-}} >Open Thread</Button>
+      <Button size="small" color="black" onClick={()=> window.location.assign(`/${props.comment?.comment_id}/thread`)} >View Thread</Button>
 </Paper>)
 }
 

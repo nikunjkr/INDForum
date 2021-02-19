@@ -14,6 +14,7 @@ import Posts from "../Posts/Posts";
 import AddComment from "../AddComment/AddComment";
 import Comment from "../Comment/Comment";
 import { LocalFlorist } from "@material-ui/icons";
+import commentList from './CommentList';
 
 const CommentList = ({ match }) => {
   //   const posts = useSelector((state) => state.Posts);
@@ -49,7 +50,7 @@ const CommentList = ({ match }) => {
   console.log(post, "new post");
   console.log(comments, "zero");
   return (
-    <div style={{ padding: 14 }} className="App">
+    <div style={{  padding: 50 }} className="App">
       <Grid container spacing={3}>
          <Grid item xs={6}>
         {/* !post ? <CircularProgress />:  */}

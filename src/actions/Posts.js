@@ -21,9 +21,9 @@ export const getPostComments = (post_id) => async (dispatch) => {
         console.log(error);
     }
 }
-export const createComment = (post_id,comment) => async (dispatch) => {
+export const createComment = (postid,comment) => async (dispatch) => {
   try {
-    const { data } = await api.createComment(post_id,comment);
+    const { data } = await api.createComment(postid,comment);
     console.log(data,"secret");
     dispatch({ type: 'CREATE_COMMENT', payload: data });
   } catch (error) {
