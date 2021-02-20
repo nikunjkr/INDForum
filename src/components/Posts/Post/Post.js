@@ -71,7 +71,8 @@ const Post = ({ post }) => {
         <h3>{post?.timePosted}</h3>
        
       <CardActions>
-        <Button size="small" color="primary" onClick={function newDoc() {
+        <Button size="small" color="primary" onClick={() => {
+          localStorage.setItem("post_id", {postid})
   window.location.assign(`/${postid}/comments`)
 }} >
           {post?.noofcomments} Comments 
