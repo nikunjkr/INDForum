@@ -3,11 +3,17 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { HouseRounded } from "@material-ui/icons";
 import { useState } from "react";
-import {createComment} from '../../actions/Posts'
+import {createComment, getPostComments} from '../../actions/Posts'
 import { useDispatch, useSelector } from 'react-redux';
 
 
+
 const AddComment = (props) => {
+
+  const getUsername = state => state.User?.Name; 
+
+  const username =useSelector(getUsername);
+
   console.log(props.post?.post_id,"adding comments")
   const postid=props.post?.post_id;
   const up_level_cid=props.up_level_cid;
@@ -22,9 +28,11 @@ const AddComment = (props) => {
 
   const handleAddComment = async(e) => {
     e.preventDefault();
-    await dispatch(createComment( postid, comment));
+    dispatch(createComment( postid, comment));
+    dispatch(getPostComments(postid))
     clear();
   }
+  const commentAs= "Comment as " + username
 
   // useEffect(()=>{ 
   //   handleAddComment();
@@ -34,7 +42,7 @@ const AddComment = (props) => {
       <TextField
         id="outlined-multiline-static"
         margin="normal"
-        label="Comment as "
+        label={commentAs}
         multiline
         rows={4}
         // defaultValue="Default Value"
@@ -46,6 +54,7 @@ const AddComment = (props) => {
           setComment(value )}}
         value={comment}
       />
+     
       <Button variant="contained" color="primary" onClick={handleAddComment}>
         Comment
       </Button>

@@ -55,7 +55,7 @@ const CommentList = ({ match }) => {
          <Grid item xs={6}>
         {/* !post ? <CircularProgress />:  */}
         <Post post={post} />
-        <AddComment post ={post} up_level_cid=''/>
+        <AddComment post ={post} />
       </Grid>
       </Grid>
      

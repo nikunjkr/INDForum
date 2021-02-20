@@ -16,30 +16,23 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import {upvoteComment} from '../../actions/Posts'
 
 import AddComment from '../AddComment/AddComment'
+import { get } from "js-cookie";
 
 const Comment = (props) => {
-  // console.log("props",props);
-  // if(props.comment?.post_id === null || props.comment?.post_id === undefined){
-  // localStorage.setItem("post_id", props?.comment?.post_id);
-  // }
-  
-  console.log("seeting local",localStorage.getItem("post_id") )
 
-  // const [color, setColor] = useState('action')
+  const post_id = props.comment?.post_id;
+
+  
   
   console.log("Seeing the comments of a post",props);
 
-  // const handleReply  = () =>{
-  //   document.getElementById("comment-grid").append(
-  //     <AddComment/>
-  //   )
-  // }
   
   const dispatch = useDispatch();
   useEffect(()=>{
     // dispatch(upvoteComment(props.comment?.comment_id, "u"))
+    dispatch(getPostComments(post_id))
     console.log("useEffect in comments")
-  },[dispatch,props.comment?.comment_id]);
+  },[dispatch,props.comment?.comment_id,post_id]);
 
   console.log(props, "inside comments");
     

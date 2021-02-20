@@ -70,3 +70,12 @@ export const getThread = (comment_id) => async (dispatch) => {
     console.log(error);
   }
 };
+export const getUser = () => async (dispatch) => {
+  try {
+    const { data } = await api.getUser();
+    console.log("thread data",data);
+    dispatch({ type: 'GET_USER', payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};

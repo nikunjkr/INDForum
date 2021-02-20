@@ -6,7 +6,7 @@ import CommentList from './components/CommentList/CommentList'
 // import {Container, AppBar, Typography} from "@material-ui/core"
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import {useDispatch} from "react-redux"
-import {getPosts} from './actions/Posts';
+import {getPosts, getUser} from './actions/Posts';
 import Routes from './Routes';
 import logo from './logo.png'
 
@@ -18,6 +18,7 @@ const App = () => {
   useEffect(() => {
     // forgot to call
     dispatch(getPosts());
+    dispatch(getUser());
     console.log("Dispatching");
   }, [dispatch]);
 

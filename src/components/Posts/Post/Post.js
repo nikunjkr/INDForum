@@ -51,18 +51,19 @@ const Post = ({ post }) => {
           {post?.title}
         </Typography>
        
-        <CardMedia
+        {(post?.image_link !=="" ) ? (<CardMedia
           className={classes.media}
           image={post?.image_link}
           title={post?.Title}
-        />
+
+        />):( <CardMedia title={post?.Title}/>)}
         {/* <Link to="/:postid/comments">Comments</Link> */}
 
         {/* <h3>{post.name}</h3> */}
         {/* <img src={post.user_image} alt="Loading"></img> */}
 
         <h4>{post?.caption}</h4>
-        <h3>{post?.image_Link}</h3>
+        {/* <h3>{post?.image_Link}</h3> */}
 
         <h3>{post?.timePosted}</h3>
        
