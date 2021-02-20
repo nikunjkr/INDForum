@@ -23,11 +23,7 @@ const Post = ({ post }) => {
   const classes = useStyles();
   const postid = post?.post_id;
 
-  console.log(post)
-
-  const imgLink =
-    "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
-
+  console.log(post);
   return (
     <Card className={classes}>
         <CardHeader
