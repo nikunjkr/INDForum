@@ -15,7 +15,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import history from '../../../history'
 
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import { PostDetails } from "../../PostDetails/PostDetails";
+
 import { Divider, Avatar, Grid, Paper } from "@material-ui/core";
 import useStyles from "./styles";
 

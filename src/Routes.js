@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Router, Switch, Route } from "react-router-dom";
 import history from "./history";
 import Posts from "./components/Posts/Posts";
-import PostDetails from "./components/PostDetails/PostDetails";
+
 import CommentList from "./components/CommentList/CommentList";
 import Thread from './components/Thread/Thread';
 

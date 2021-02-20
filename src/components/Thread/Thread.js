@@ -5,7 +5,7 @@ import Comment from '../Comment/Comment';
 
 import history from '../../history';
 import Post from '../Posts/Post/Post';
-import AddReplyToComment from '../AddReply.js/AddReplyToComment';
+import AddReplyToComment from '../AddReply/AddReplyToComment';
 
 
 const Thread = ({match}) => {

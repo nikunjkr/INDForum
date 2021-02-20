@@ -5,7 +5,7 @@ const API = axios.create({ baseURL: 'http://ec2-52-206-109-241.compute-1.amazona
 API.interceptors.request.use((req) => {
 //   if (localStorage.getItem('profile')) {
     // req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
-    req.headers.Authorization = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMTYxMTc2NTcyNDE2MzgzNjM2NDkiLCJlbWFpbCI6Im5pa3VuamtyMDc4QGdtYWlsLmNvbSIsImlhdCI6MTYxMzgxNDMxOCwiZXhwIjoxNjEzODE3OTE4fQ.CMiuNURrgRINvqUhZgbbYZzEsg6NitI5PWxXBQ3tcZ4";
+    req.headers.Authorization = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMTYxMTc2NTcyNDE2MzgzNjM2NDkiLCJlbWFpbCI6Im5pa3VuamtyMDc4QGdtYWlsLmNvbSIsImlhdCI6MTYxMzgyODcwMywiZXhwIjoxNjEzODMyMzAzfQ.-_pHMVwk1RHphqGVtxQEB8l-sB_KbXda0s2Tw0fNogc";
 //   }
 
   return req;

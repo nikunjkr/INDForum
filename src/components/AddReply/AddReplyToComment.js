@@ -7,7 +7,7 @@ import {replyComment} from '../../actions/Posts'
 import { useDispatch, useSelector } from 'react-redux';
 
 
-const AddReply= (props) => {
+const AddReplyToComments= (props) => {
   console.log(props.post?.post_id,"adding comments")
   const postid=props.post?.post_id;
   const up_level_cid=props.up_level_cid;
@@ -50,5 +50,5 @@ const AddReply= (props) => {
   );
 };
 
-export default AddReply;
+export default AddReplyToComments;
 

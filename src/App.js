@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import './App.css';
 import Posts from './components/Posts/Posts'
-import PostDetails from './components/PostDetails/PostDetails'
+
 import CommentList from './components/CommentList/CommentList'
 // import {Container, AppBar, Typography} from "@material-ui/core"
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
