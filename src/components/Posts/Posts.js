@@ -10,11 +10,12 @@ import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 const Posts = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // forgot to call
-    dispatch(getPosts());
-    console.log("Dispatching");
-  }, [dispatch]);
+  // useEffect(() => {
+  //   // forgot to call
+  //   dispatch(getPosts());
+  //   console.log("Dispatching");
+  // }, [dispatch]);
+
   // Allows to extract data from the Redux store state, using a selector function.
   // useSelector() will also subscribe to the Redux store, and run  selector whenever an action is dispatched.
   const posts = useSelector((state) => state.Posts);
@@ -38,7 +39,7 @@ const Posts = () => {
           <Post post={post} />
         </Grid>
       ))}
-      {/* <Link to="/:postid/comments">Comments</Link> */}
+    
     </Grid>
   );
 };

@@ -30,6 +30,16 @@ export const createComment = (postid,comment) => async (dispatch) => {
     console.log(error);
   }
 };
+export const replyComment = (postid,comment,up_level_cid) => async (dispatch) => {
+  try {
+    const { data } = await api.createComment(postid,comment,up_level_cid);
+    console.log(data,"secret");
+    dispatch({ type: 'REPLY_COMMENT', payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 
 export const upvoteComment = (comment_id) => async (dispatch) => {
@@ -47,6 +57,15 @@ export const downvoteComment = (comment_id) => async (dispatch) => {
     const { data } = await api.upvoteComment(comment_id);
 
     dispatch({ type: 'DOWNVOTE_COMMENT', payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getThread = (comment_id) => async (dispatch) => {
+  try {
+    const { data } = await api.getThread(comment_id);
+    console.log("thread data",data);
+    dispatch({ type: 'GET_THREAD', payload: data });
   } catch (error) {
     console.log(error);
   }

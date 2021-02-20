@@ -72,9 +72,10 @@ const Post = ({ post }) => {
        
       <CardActions>
         <Button size="small" color="primary" onClick={function newDoc() {
-  window.location.assign(`${postid}/comments`)
+  window.location.assign(`/${postid}/comments`)
 }} >
-          Comments
+          {post?.noofcomments} Comments 
+          
         </Button  >
        <form>
     

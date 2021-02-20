@@ -2,7 +2,9 @@
 import {combineReducers} from "redux";
 import Posts from "./Posts"
 import Comments from "./Comments"
+import Thread from "./Thread"
 export const reducers = combineReducers ({
-    Posts,
-    Comments
+    Posts :Posts,
+    Comments:Comments,
+    Thread:Thread
 })

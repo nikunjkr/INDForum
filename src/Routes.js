@@ -4,7 +4,7 @@ import history from "./history";
 import Posts from "./components/Posts/Posts";
 import PostDetails from "./components/PostDetails/PostDetails";
 import CommentList from "./components/CommentList/CommentList";
-
+import Thread from './components/Thread/Thread';
 
 const Routes = () => (
   <Router history={history}>
@@ -14,6 +14,7 @@ const Routes = () => (
         <Posts />
       </Route>
       <Route path="/:postid/comments" component={CommentList} exact />
+      <Route path="/comments/:commentid/thread" component={Thread} exact/>
     </Switch>
   </Router>
 );

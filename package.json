@@ -2,7 +2,7 @@
   "name": "forum",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://ec2-52-206-109-241.compute-1.amazonaws.com:3000/team2practo/",
+  "proxy": "http://ec2-52-206-109-241.compute-1.amazonaws.com/team2practo/",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",

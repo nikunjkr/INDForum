@@ -11,6 +11,8 @@ import Routes from './Routes';
 import logo from './logo.png'
 
 const App = () => {
+
+  // console.log(store);
   const dispatch = useDispatch();
 
   useEffect(() => {

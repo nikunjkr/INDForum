@@ -1,13 +1,15 @@
-const reducer = (Comments=[], action) => {
+const reducer = (Comments= [], action) => {
     switch(action.type) {
         case 'GET_POST_COMMENTS':
-            return action.payload ;
+            return  action.payload ;
         case 'CREATE':
             return [...Comments, action.payload] ;
         case 'UPVOTE_COMMENT':
-            return action.payload ;
+            return Comments ;
         case 'DOWNVOTE_COMMENT':
-            return action.payload ;
+            return Comments;
+        // case 'GET_THREAD':
+        //     return action.payload;
         default:
             return Comments;
 

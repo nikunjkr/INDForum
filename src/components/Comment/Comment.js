@@ -18,24 +18,28 @@ import {upvoteComment} from '../../actions/Posts'
 import AddComment from '../AddComment/AddComment'
 
 const Comment = (props) => {
+  // console.log("props",props);
+  // if(props.comment?.post_id === null || props.comment?.post_id === undefined){
+  // localStorage.setItem("post_id", props?.comment?.post_id);
+  // }
+  
+  console.log("seeting local",localStorage.getItem("post_id") )
 
-
-
-  const [color, setColor] = useState('action')
+  // const [color, setColor] = useState('action')
   
   console.log("Seeing the comments of a post",props);
 
-  const handleReply  = () =>{
-    document.getElementById("comment-grid").append(
-      <AddComment/>
-    )
-  }
+  // const handleReply  = () =>{
+  //   document.getElementById("comment-grid").append(
+  //     <AddComment/>
+  //   )
+  // }
   
   const dispatch = useDispatch();
-  // useEffect(()=>{
-  //   dispatch(upvoteComment(props.comment?.comment_id, "u"))
-  //   console.log("useEffect in comments")
-  // },[dispatch,props.comment?.comment_id]);
+  useEffect(()=>{
+    // dispatch(upvoteComment(props.comment?.comment_id, "u"))
+    console.log("useEffect in comments")
+  },[dispatch,props.comment?.comment_id]);
 
   console.log(props, "inside comments");
     
@@ -69,7 +73,9 @@ const Comment = (props) => {
       
     </Grid>
     {/* <h3>Thread</h3> */}
-      <Button size="small" color="black" onClick={()=> window.location.assign(`/${props.comment?.comment_id}/thread`)} >View Thread</Button>
+      <Button size="small" color="black" onClick={()=> {
+        localStorage.setItem("post_id", props.comment?.post_id )
+        window.location.assign(`/comments/${props.comment?.comment_id}/thread`)}} >View Thread</Button>
 </Paper>)
 }
 
